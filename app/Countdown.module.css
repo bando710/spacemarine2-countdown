@@ -1,0 +1,66 @@
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .backgroundImage {
+    z-index: -2;
+  }
+  
+  .vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+    z-index: -1;
+  }
+  
+  .content {
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .countdownContainer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .countdownDisplay {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .completedText {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem;
+    }
+  
+    .countdownDisplay {
+      font-size: 2rem;
+    }
+  }

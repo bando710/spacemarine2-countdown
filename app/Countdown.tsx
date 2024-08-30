@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Countdown from 'react-countdown';
+import Image from 'next/image';
+import styles from './Countdown.module.css';
 
 interface CountdownRendererProps {
   days: number;
@@ -13,33 +15,45 @@ interface CountdownRendererProps {
 
 const SpaceMarinesCountdown = () => {
   const [isComplete, setIsComplete] = useState(false);
+  const preReleaseDate = new Date('2023-09-05T12:00:00-04:00').getTime();
 
-  // Calculate the pre-release date (New York, 12:00 PM on September 5th)
-  const preReleaseDate = new Date('2024-09-05T12:00:00-04:00').getTime(); // EDT timezone
+  useEffect(() => {
+    if (Date.now() >= preReleaseDate) {
+      setIsComplete(true);
+    }
+  }, [preReleaseDate]);
 
   const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRendererProps) => {
     if (completed) {
-      setIsComplete(true);
-      return <span className="text-2xl font-bold">Early Access Released - For the Emperor.</span>;
+      return <span className={styles.completedText}>Early Access Released - For the Emperor.</span>;
     } else {
       return (
-        <div className="text-4xl font-bold">
-          <span>{days} days</span> : <span>{hours} hours</span> :{' '}
-          <span>{minutes} minutes</span> : <span>{seconds} seconds</span>
+        <div className={styles.countdownDisplay}>
+          <span>{days}d</span> : <span>{hours}h</span> : <span>{minutes}m</span> : <span>{seconds}s</span>
         </div>
       );
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{backgroundImage: "url('/ar23ix.jpg')"}}>
-      <main className="text-center">
-        <h1 className="text-5xl font-bold text-white mb-8">Space Marines 2</h1>
-        <div className="bg-black bg-opacity-70 p-8 rounded-lg">
-          <h2 className="text-2xl text-white mb-4">
+    <div className={styles.container}>
+      <div className={styles.vignette}></div>
+      <Image
+        src="/ar23ix.jpg"
+        alt="Space Marines 2 Background"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        priority
+        className={styles.backgroundImage}
+      />
+      <main className={styles.content}>
+        <h1 className={styles.title}>Space Marines 2</h1>
+        <div className={styles.countdownContainer}>
+          <h2 className={styles.subtitle}>
             {isComplete ? "Early Access Available Now!" : "Time until pre-release:"}
           </h2>
-          <Countdown date={preReleaseDate} renderer={renderer} />
+          <Countdown date={preReleaseDate} renderer={renderer} onComplete={() => setIsComplete(true)} />
         </div>
       </main>
     </div>
