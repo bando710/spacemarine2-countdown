@@ -1,7 +1,6 @@
-import { Inter, Cinzel } from "next/font/google";
+import { Cinzel } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
-const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700"] });
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "900"] });
 
 export default function RootLayout({
   children,
