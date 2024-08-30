@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
 .container {
   position: relative;
   min-height: 100vh;
@@ -21,35 +19,44 @@
   left: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
   z-index: -1;
 }
 
 .content {
   text-align: center;
   z-index: 1;
+  width: 80%;
+  max-width: 800px;
 }
 
 .title {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  color: #FFC700; /* More vibrant gold */
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.8),
+    0 0 20px rgba(255,199,0,0.7); /* Increased glow */
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .countdownContainer {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 10px;
-  border: 2px solid #8B0000;
-  box-shadow: 0 0 20px #8B0000;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1.5rem;
+  border-radius: 5px;
+  border: 2px solid #FFC700;
+  box-shadow: 
+    0 0 30px rgba(255,199,0,0.3),
+    inset 0 0 15px rgba(255,199,0,0.3);
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+  color: #FFC700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -57,7 +64,7 @@
 .countdownDisplay {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .timeUnit {
@@ -69,24 +76,34 @@
 .number {
   font-size: 3rem;
   font-weight: 700;
-  color: #ff0000;
-  text-shadow: 0 0 5px #ff0000;
+  color: #FFC700;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.8),
+    0 0 10px rgba(255,199,0,0.7);
 }
 
 .label {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: #FFC700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .completedText {
   font-size: 2rem;
   font-weight: 700;
-  color: #ff0000;
-  text-shadow: 0 0 10px #ff0000;
+  color: #FFC700;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.8),
+    0 0 20px rgba(255,199,0,0.7);
 }
 
 @media (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
+  
   .title {
     font-size: 3rem;
   }

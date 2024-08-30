@@ -3,6 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Countdown.module.css';
+import dynamic from 'next/dynamic';
+
+const DynamicCountdownDisplay = dynamic(() => import('./CountdownDisplay'), {
+    loading: () => <p>Loading countdown...</p>,
+  });
 
 const SpaceMarinesCountdown = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -12,12 +17,12 @@ const SpaceMarinesCountdown = () => {
     seconds: 0
   });
   const [isComplete, setIsComplete] = useState(false);
-  const preReleaseDate = new Date('2023-09-05T12:00:00-04:00').getTime();
+  const releaseDate = new Date('2024-09-05T12:00:00-04:00').getTime();
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = preReleaseDate - now;
+      const distance = releaseDate - now;
 
       if (distance < 0) {
         clearInterval(timer);
@@ -33,7 +38,7 @@ const SpaceMarinesCountdown = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [preReleaseDate]);
+  }, [releaseDate]);
 
   return (
     <div className={styles.container}>
