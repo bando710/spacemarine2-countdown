@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Countdown.module.css";
+import React from 'react';
+import styles from './Countdown.module.css';
 
 interface CountdownDisplayProps {
   days: number;
@@ -8,12 +8,7 @@ interface CountdownDisplayProps {
   seconds: number;
 }
 
-const CountdownDisplay: React.FC<CountdownDisplayProps> = ({
-  days,
-  hours,
-  minutes,
-  seconds,
-}) => (
+const CountdownDisplay: React.FC<CountdownDisplayProps> = ({ days, hours, minutes, seconds }) => (
   <div className={styles.countdownDisplay}>
     <div className={styles.timeUnit}>
       <span className={styles.number}>{days}</span>

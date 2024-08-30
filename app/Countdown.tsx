@@ -1,8 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import styles from './Countdown.module.css';
+
+// Lazy load the Image component
+const LazyImage = dynamic(() => import('next/image'), {
+  loading: () => <div className={styles.imagePlaceholder}>Loading...</div>,
+});
+
+// Lazy load the CountdownDisplay component
+const LazyCountdownDisplay = dynamic(() => import('./CountdownDisplay'), {
+  loading: () => <div>Loading countdown...</div>,
+});
 
 const SpaceMarinesCountdown: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -13,7 +23,6 @@ const SpaceMarinesCountdown: React.FC = () => {
   });
   const [isComplete, setIsComplete] = useState(false);
   
-  // Set the exact release date and time (September 5th, 2024, at 12:00 PM New York time)
   const releaseDate = new Date('2024-09-05T12:00:00-04:00').getTime();
 
   useEffect(() => {
@@ -40,13 +49,12 @@ const SpaceMarinesCountdown: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.vignette}></div>
-      <Image
+      <LazyImage
         src="/ar23ix.jpg"
         alt="Space Marine 2 Background"
         fill
         style={{ objectFit: 'cover' }}
         quality={100}
-        priority
         className={styles.backgroundImage}
       />
       <main className={styles.content}>
@@ -56,24 +64,12 @@ const SpaceMarinesCountdown: React.FC = () => {
             {isComplete ? "Early Unlock Available Now!" : "PC Early Unlock In:"}
           </h2>
           {!isComplete && (
-            <div className={styles.countdownDisplay}>
-              <div className={styles.timeUnit}>
-                <span className={styles.number}>{timeLeft.days}</span>
-                <span className={styles.label}>Days</span>
-              </div>
-              <div className={styles.timeUnit}>
-                <span className={styles.number}>{timeLeft.hours}</span>
-                <span className={styles.label}>Hours</span>
-              </div>
-              <div className={styles.timeUnit}>
-                <span className={styles.number}>{timeLeft.minutes}</span>
-                <span className={styles.label}>Minutes</span>
-              </div>
-              <div className={styles.timeUnit}>
-                <span className={styles.number}>{timeLeft.seconds}</span>
-                <span className={styles.label}>Seconds</span>
-              </div>
-            </div>
+            <LazyCountdownDisplay
+              days={timeLeft.days}
+              hours={timeLeft.hours}
+              minutes={timeLeft.minutes}
+              seconds={timeLeft.seconds}
+            />
           )}
           {isComplete && <span className={styles.completedText}>For the Emperor! The Crusade Begins!</span>}
         </div>
