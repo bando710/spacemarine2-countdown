@@ -63,7 +63,7 @@ const SpaceMarinesCountdown: React.FC = () => {
         <h1 className={styles.title}>Space Marine 2</h1>
         <div className={styles.countdownContainer}>
           <h2 className={styles.subtitle}>
-            {isComplete ? "Early Unlock Available Now!" : "Early Unlock In:"}
+            {isComplete ? "Early Acess Available Now!" : "Early Access In:"}
           </h2>
           {!isComplete && (
             <LazyCountdownDisplay
