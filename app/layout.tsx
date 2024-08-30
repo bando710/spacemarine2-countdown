@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
-  title: "Space Marine 2 Early Unlock Countdown | Warhammer 40,000",
+  title: "Space Marine 2 Early Access Countdown | Warhammer 40,000",
   description:
-    "Unofficial countdown to the early unlock of Space Marine 2 on PC. Join the Adeptus Astartes in the grim darkness of the far future!",
+    "Unofficial countdown to the early access of Space Marine 2 on PC. Join the Adeptus Astartes in the grim darkness of the far future!",
   keywords:
-    "Space Marine 2, Warhammer 40000, Adeptus Astartes, countdown, early unlock, PC game",
+    "Space Marine 2, Warhammer 40000, Adeptus Astartes, countdown, early access, PC game",
   icons: [
     {
       rel: "icon",
@@ -15,26 +15,17 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: "Space Marine 2 Early Unlock Countdown",
+    title: "Space Marine 2 Early Access Countdown",
     description:
-      "Unofficial countdown to Space Marine 2 PC early unlock. For the Emperor!",
-    images: [
-      {
-        url: "https://changing-this-with-vercel-link.app/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Space Marine 2 Countdown",
-      },
-    ],
+      "Unofficial countdown to Space Marine 2 early access, advanced access. For the Emperor!",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Space Marine 2 Early Unlock Countdown",
+    title: "Space Marine 2 Early Access Countdown",
     description:
-      "Unofficial countdown to Space Marine 2 PC early unlock. For the Emperor!",
-    images: ["https://changing-this-with-vercel-link.app/og-image.jpg"],
+      "Unofficial countdown to Space Marine 2 early access. For the Emperor!",
   },
   robots: "index, follow",
 };
