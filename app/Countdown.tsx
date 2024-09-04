@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import styles from "./Countdown.module.css";
+import Link from 'next/link';
 
 // Lazy load the Image component
 const LazyImage = dynamic(() => import("next/image"), {
@@ -63,7 +64,7 @@ const SpaceMarinesCountdown: React.FC = () => {
         <h1 className={styles.title}>Space Marine 2</h1>
         <div className={styles.countdownContainer}>
           <h2 className={styles.subtitle}>
-            {isComplete ? "Early Acess Available Now!" : "Early Access In:"}
+            {isComplete ? "Early Access Available Now!" : "Early Access In:"}
           </h2>
           {!isComplete && (
             <LazyCountdownDisplay
@@ -78,6 +79,12 @@ const SpaceMarinesCountdown: React.FC = () => {
               For the Emperor! The Crusade Begins!
             </span>
           )}
+        </div>
+        <div className={styles.creditText}>
+          Made with ❤️ by{' '}
+          <Link href="https://github.com/bando710" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>
+            Bando710
+          </Link>
         </div>
       </main>
     </div>
